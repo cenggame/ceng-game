@@ -39,14 +39,15 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    [System.Obsolete]
+    //[System.Obsolete]
     public void MainMenu()
-    {
+    { 
         Pause_Menu.SetActiveRecursively(false);
         confirmQuit.SetActive(true);
-        confirm = false;
+        //confirm = false;
     }
 
+    //[System.Obsolete]
     public void SelectNo()
     {
         confirmQuit.SetActive(false);
@@ -64,8 +65,8 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        MainMenu();
-        confirm=true;
+        confirm = true;
+        SelectYes();
 
     }
 }
