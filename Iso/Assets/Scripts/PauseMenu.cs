@@ -11,22 +11,31 @@ public class PauseMenu : MonoBehaviour
     bool isPaused;
     bool confirm=false;
 
+
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
+            
         }
 
         if (isPaused)
         {
             Pause_Menu.SetActive(true);
             Time.timeScale = 0;
+            Cursor.visible = true;
         }
         else
         {
             Pause_Menu.SetActive(false);
             Time.timeScale = 1;
+            Cursor.visible = false;
         }
     }
 
@@ -52,10 +61,11 @@ public class PauseMenu : MonoBehaviour
     {
         confirmQuit.SetActive(false);
         Pause_Menu.SetActiveRecursively(true);
+        confirm = false;
     }
     public void SelectYes()
     {
-        if (confirm)
+        if (confirm == true)
         {
             Application.Quit();
         }
@@ -66,7 +76,7 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         confirm = true;
-        SelectYes();
+        MainMenu();
 
     }
 }
