@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
+    private AudioSource mAudioSrc;
     public GameObject crosshair;
     bool isPaused;
     private void Start()
     {
-       //Cursor.visible = false;
+        //Cursor.visible = false;
+        mAudioSrc = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     private void FixedUpdate()
     {
+
         transform.position = Input.mousePosition;
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -29,5 +32,14 @@ public class Crosshair : MonoBehaviour
             //Cursor.visible = false;
            // crosshair.SetActive(true);
         }
+    }
+    private void Update()
+    {
+       
+        if (Input.GetMouseButtonDown(0))
+        {
+            mAudioSrc.Play();
+        }
+        
     }
 }

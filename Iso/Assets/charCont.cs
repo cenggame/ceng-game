@@ -57,24 +57,25 @@ public class charCont : MonoBehaviour
         chr_anim.SetFloat("vertical", 0);
 
 
-        if (Input.anyKey)
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
        {
             Move();
        }
         
-        void Move()
-        {
-            Vector3 direction = new Vector3(Input.GetAxis("HorizontalKey"), 0, Input.GetAxis("VerticalKey"));
-            Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("HorizontalKey");
-            Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("VerticalKey");
+        
+    }
+    void Move()
+    {
+        Vector3 direction = new Vector3(Input.GetAxis("HorizontalKey"), 0, Input.GetAxis("VerticalKey"));
+        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("HorizontalKey");
+        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("VerticalKey");
 
 
-            Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-            transform.forward = heading;
-            transform.position += rightMovement;
-            transform.position += upMovement;
-            chr_anim.SetFloat("vertical", 2);
+        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+       // transform.forward = heading;
+        transform.position += rightMovement;
+        transform.position += upMovement;
+        chr_anim.SetFloat("vertical", 2);
 
-        }
     }
 }
