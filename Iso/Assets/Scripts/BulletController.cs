@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public float speed;
+    public float lifeTime;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,12 @@ public class BulletController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        lifeTime -= Time.deltaTime;
+
+        if (lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

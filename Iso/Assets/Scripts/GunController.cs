@@ -23,18 +23,24 @@ public class GunController : MonoBehaviour
     {
         if (isFiring)
         {
-            shotCounter -= Time.deltaTime;
-            if (shotCounter <= 0)
-            {
-                shotCounter = timeBetweenShots;
-                BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
-                newBullet.speed = bulletSpeed;
-                mAudioSrc.Play();
-            }
+            shot();
         }
         else
         {
             shotCounter = 0;
+        }
+    }
+    void shot()
+    {
+        shotCounter -= Time.deltaTime;
+        if (shotCounter <= 0)
+        {
+            shotCounter = timeBetweenShots;
+            BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
+            newBullet.speed = bulletSpeed;
+            mAudioSrc.Play();
+
+            Destroy(newBullet, 8f);
         }
     }
 }
