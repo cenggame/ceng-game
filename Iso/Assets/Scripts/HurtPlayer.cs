@@ -1,16 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HurtPlayer : MonoBehaviour
 {
     public int damageToGive;
+    public float cooldownTime = 1;
+    public float nextFireTime = 0;
 
-    public void OnTriggerEnter(Collider other)
+
+    void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (Time.time >nextFireTime)
         {
             other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToGive);
+            nextFireTime = Time.time + cooldownTime;
         }
     }
+    
 }
+
