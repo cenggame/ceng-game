@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthManager : MonoBehaviour
 {
     public int startingHealth;
     public int currentHealth;
-
+    public Slider slider;
+    public Image fillImage;
    // public float flashLength;
    // private float flashCounter;
 
@@ -16,6 +18,8 @@ public class PlayerHealthManager : MonoBehaviour
     void Start()
     {
         currentHealth = startingHealth;
+
+        
         //rend = GetComponent<Renderer>();
        // storedColor = rend.material.GetColor("_Color");
     }
@@ -23,9 +27,11 @@ public class PlayerHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slider.value = currentHealth;
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            fillImage.enabled = false;
         }
     }
 
