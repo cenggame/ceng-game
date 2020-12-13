@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7589001269577498383}
   - component: {fileID: 4187627444244620375}
   - component: {fileID: -3783041937128683590}
+  - component: {fileID: -1575119312048448115}
   m_Layer: 0
   m_Name: rifle_bullet_1
   m_TagString: Untagged
@@ -94,3 +95,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lifeTime: 4
+  damageToGive: 5
+--- !u!65 &-1575119312048448115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481131208548253871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.064430125, y: 0.06305833, z: 0.3665092}
+  m_Center: {x: -0.0022112625, y: 0.0022651237, z: 0.042607747}
