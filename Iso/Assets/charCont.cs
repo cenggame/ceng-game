@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class charCont : MonoBehaviour
 {
-
-
     [SerializeField]
     float moveSpeed = 18f;
     Vector3 forward, right;
     Animator chr_anim;
     private Camera mainCamera;
     public GunController theGun;
+    AudioSource au;
+    public float cooldownTime = 0.01f;
+    public float nextFireTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,8 @@ public class charCont : MonoBehaviour
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         theGun.isFiring = false;
+        au = GetComponent<AudioSource>();
 
-            
             
             }
 
@@ -60,6 +61,11 @@ public class charCont : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
        {
             Move();
+            if (Time.time > nextFireTime)
+            {
+                //au.Play();
+                nextFireTime = Time.time + cooldownTime;
+            }
        }
         
         
