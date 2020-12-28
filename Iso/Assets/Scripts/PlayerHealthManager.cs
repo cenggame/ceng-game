@@ -15,8 +15,6 @@ public class PlayerHealthManager : MonoBehaviour
     public bool isDead=false;
     public float waitTime=5f;
     public bool gameOverMenu;
-    public float lifeTime = 3f;
-    public EnemyHealthManager sound = new EnemyHealthManager();
 
     void Start()
     {
@@ -24,12 +22,9 @@ public class PlayerHealthManager : MonoBehaviour
         _animator = GetComponent<Animator>();
         capsule = GetComponent<CapsuleCollider>();
     }
-
     // Update is called once per frame
     void Update()
     {
-
-       
         slider.value = currentHealth;
         if (currentHealth <= 0)
         {
@@ -41,14 +36,12 @@ public class PlayerHealthManager : MonoBehaviour
                 isDead = true;
                 gameOverMenu = true;
             }
-
         }
-        if(gameOverMenu)
+        if (gameOverMenu)
         {
             game_Over.SetActive(true);
             Time.timeScale = 0;
             Cursor.visible = true;
-            
         }
         else
         {
@@ -57,7 +50,6 @@ public class PlayerHealthManager : MonoBehaviour
             Cursor.visible = false;
         }
     }
-
     public void HurtPlayer(int damageAmount)
     {
         currentHealth -= damageAmount;
@@ -65,21 +57,16 @@ public class PlayerHealthManager : MonoBehaviour
     void PlayerDie()
     {
         _animator.SetTrigger("death");
-
     }
     public void MainMenu()
     {
-        game_Over.SetActiveRecursively(false);
+        game_Over.SetActive(false);
         SceneManager.LoadScene("Menu");
     }
-    
-    
     public void QuitGame()
     {
         Application.Quit();
-
     }
-
     public void Restart()
     {
         SceneManager.LoadScene("SampleScene");

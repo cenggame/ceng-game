@@ -21,13 +21,10 @@ public class EnemyHealthManager : MonoBehaviour
         mAudioSrc.Play();
         damage = 2;
     }
-
     void Update()
     {
-        
         if (currentHealth <= 0)
         {
-
             if (!isDead)
             {
                 gameObject.GetComponent<EnemyController>().die();
@@ -39,10 +36,8 @@ public class EnemyHealthManager : MonoBehaviour
             }
             else
                 damage = 2;
-
         }
     }
-
     public void HurtEnemy(int damage)
     {
         currentHealth -= damage;

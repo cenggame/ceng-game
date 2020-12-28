@@ -11,20 +11,16 @@ public class PauseMenu : MonoBehaviour
     bool isPaused;
     bool confirm=false;
 
-
     private void Start()
     {
         Cursor.visible = false;
     }
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
-            
         }
-
         if (isPaused)
         {
             Pause_Menu.SetActive(true);
@@ -35,22 +31,18 @@ public class PauseMenu : MonoBehaviour
         {
             Pause_Menu.SetActive(false);
         }
-       
     }
-
     public void ResumeGame()
     {
         Pause_Menu.SetActive(false);
         Time.timeScale = 1;
         Cursor.visible = false;
         isPaused = false;
-
     }
     public void Settings()
     {
 
     }
-
     //[System.Obsolete]
     public void MainMenu()
     { 
@@ -58,7 +50,6 @@ public class PauseMenu : MonoBehaviour
         confirmQuit.SetActive(true);
         //confirm = false;
     }
-
     //[System.Obsolete]
     public void SelectNo()
     {
@@ -75,11 +66,9 @@ public class PauseMenu : MonoBehaviour
         else
         SceneManager.LoadScene("Menu");
     }
-
     public void QuitGame()
     {
         confirm = true;
         MainMenu();
-
     }
 }

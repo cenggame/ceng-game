@@ -25,7 +25,6 @@ public class GunController : MonoBehaviour
         currentAmmo = maxAmmo;
         showAmmo();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -47,7 +46,6 @@ public class GunController : MonoBehaviour
             shotCounter = 0;
         }
     }
-
     IEnumerator Reload()
     {
         isReloading = true;
@@ -56,13 +54,11 @@ public class GunController : MonoBehaviour
         showAmmo();
         isReloading = false;
     }
-
     void showAmmo()
     {
         ammoText = GameObject.Find("Ammo").GetComponent<Text>();
         ammoText.text = currentAmmo + "/" + maxAmmo;
     }
-
     void shot()
     {
         shotCounter -= Time.deltaTime;
