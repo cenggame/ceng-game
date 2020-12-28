@@ -35,4 +35,11 @@ public class EnemyController : MonoBehaviour
     {
         ZombieAnim.SetTrigger("attack");
     }
+
+    public void PlayerDie()
+    {
+       // Agent.speed = 0;
+        //Agent.enabled = false;
+        //this.enabled = false;
+    }
 }

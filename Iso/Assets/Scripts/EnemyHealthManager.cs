@@ -17,14 +17,11 @@ public class EnemyHealthManager : MonoBehaviour
     {
         capsule = GetComponent<CapsuleCollider>();
         mAudioSrc = GetComponent<AudioSource>();
-        //Agent = GetComponent<NavMeshAgent>();
-        //_animator = GetComponent<Animator>();
         currentHealth = health;
         mAudioSrc.Play();
         damage = 2;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -42,10 +39,7 @@ public class EnemyHealthManager : MonoBehaviour
             }
             else
                 damage = 2;
-            
-            //Agent.enabled = false ;
-            //_animator.SetTrigger("death");
-            //Destroy(gameObject);
+
         }
     }
 

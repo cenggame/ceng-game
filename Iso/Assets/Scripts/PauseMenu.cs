@@ -31,17 +31,16 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             Cursor.visible = true;
         }
-        else
-        {
-            Pause_Menu.SetActive(false);
-            Time.timeScale = 1;
-            Cursor.visible = false;
-        }
+       
     }
 
     public void ResumeGame()
     {
+        Pause_Menu.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.visible = false;
         isPaused = false;
+
     }
     public void Settings()
     {
