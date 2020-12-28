@@ -7,7 +7,7 @@ public class EnemyHealthManager : MonoBehaviour
 {
     public GameObject hurtZone;
     CapsuleCollider capsule;
-    private AudioSource mAudioSrc;
+    public AudioSource mAudioSrc;
     public int health;
     private int currentHealth;
     public bool isDead = false;

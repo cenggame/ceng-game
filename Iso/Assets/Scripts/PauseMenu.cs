@@ -31,6 +31,10 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             Cursor.visible = true;
         }
+        else
+        {
+            Pause_Menu.SetActive(false);
+        }
        
     }
 

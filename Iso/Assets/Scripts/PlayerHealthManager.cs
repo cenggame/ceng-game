@@ -16,6 +16,7 @@ public class PlayerHealthManager : MonoBehaviour
     public float waitTime=5f;
     public bool gameOverMenu;
     public float lifeTime = 3f;
+    public EnemyHealthManager sound = new EnemyHealthManager();
 
     void Start()
     {
