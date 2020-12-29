@@ -33,6 +33,7 @@ public class EnemyHealthManager : MonoBehaviour
                 capsule.enabled = false;
                 damage = 0;
                 hurtZone.SetActive(false);
+                //ScoreCounter.updateScore(); 
             }
             else
                 damage = 2;
