@@ -9,20 +9,25 @@ public class EnemyController : MonoBehaviour
     public Transform Target;
     NavMeshAgent Agent;
     public float distance;
+    GameObject target; 
     // Start is called before the first frame update
     void Start()
     {
         ZombieAnim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        ZombieAnim.SetFloat("speed",Agent.velocity.magnitude);
-        distance = Vector3.Distance(transform.position,Target.position);
-        Agent.destination = Target.position;
-        Agent.enabled = true;
+         ZombieAnim.SetFloat("speed",Agent.velocity.magnitude);
+         //distance = Vector3.Distance(transform.position,Target.position);
+         //Agent.destination = target.transform.position;
+         //Agent.enabled = true;
+        Agent.SetDestination(target.transform.position);
+        //Agent.enabled = true;
     }
     public void die()
     {
