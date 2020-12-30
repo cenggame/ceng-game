@@ -225,6 +225,10 @@ MonoBehaviour:
   gainedAmmo: 20
   scoreText: {fileID: 8633318922403868495, guid: fbf24ec94187c0640b05fa6c755fcce4,
     type: 3}
+  gammoText: {fileID: 6069492619938478143, guid: bbd1bf5930f02654d95dc7babbc68157,
+    type: 3}
+  ghealthText: {fileID: 4491881807221572036, guid: 6c3ea9a7841fc804e8e6e112ac42a5e4,
+    type: 3}
 --- !u!114 &4899320949783602061
 MonoBehaviour:
   m_ObjectHideFlags: 0

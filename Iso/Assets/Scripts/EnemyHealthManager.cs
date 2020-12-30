@@ -21,6 +21,8 @@ public class EnemyHealthManager : MonoBehaviour
     public static  int score;
     int scoreValue = 10;
     public  Text scoreText;
+    public Text gammoText;
+    public Text ghealthText;
 
     void Start()
     {
@@ -29,8 +31,7 @@ public class EnemyHealthManager : MonoBehaviour
         currentHealth = health;
         mAudioSrc.Play();
         damage = 2;
-        scoreText = GameObject.Find("ScoreText").GetComponentInChildren<Text>();
-
+        
     }
     void Update()
     {
@@ -66,6 +67,8 @@ public class EnemyHealthManager : MonoBehaviour
     public void ScoreUpdate()
     {
         scoreText = GameObject.Find("Score").GetComponentInChildren<Text>();
+        gammoText = GameObject.Find("GainedAmmo").GetComponentInChildren<Text>();
+        ghealthText = GameObject.Find("GainedHealth").GetComponentInChildren<Text>();
         score += scoreValue;
 
         //If score is multiple of 100, player will gain some health 
@@ -81,14 +84,23 @@ public class EnemyHealthManager : MonoBehaviour
         if(playerHealth.currentHealth+gainedHealth < playerHealth.startingHealth)
         {
             playerHealth.currentHealth += gainedHealth;
+            ghealthText.text = "+ " + gainedHealth + " Health";
         }
         else
         {
-            playerHealth.currentHealth = playerHealth.startingHealth;
+            if(playerHealth.currentHealth < playerHealth.startingHealth)
+            {
+                ghealthText.text = "+ " + (playerHealth.startingHealth - playerHealth.currentHealth) + " Health";
+                playerHealth.currentHealth = playerHealth.startingHealth;
+                
+            }
+            ghealthText.text = null;
+            
         }
     }
     public void GainAmmo()
     {
         playerAmmo.maxAmmo += gainedAmmo;
+        gammoText.text = "+ " + gainedAmmo + " Ammo";
     }
 }
