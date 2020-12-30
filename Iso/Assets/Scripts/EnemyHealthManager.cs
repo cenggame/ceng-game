@@ -17,8 +17,10 @@ public class EnemyHealthManager : MonoBehaviour
     public int gainedHealth = 5;
     public int gainedAmmo = 20;
     GunController playerAmmo;
+    public int enemiesKilled = 0;
+    Spawner spawn;
 
-    public static  int score;
+    public int score;
     int scoreValue = 10;
     public  Text scoreText;
 
@@ -30,17 +32,19 @@ public class EnemyHealthManager : MonoBehaviour
         mAudioSrc.Play();
         damage = 2;
         scoreText = GameObject.Find("ScoreText").GetComponentInChildren<Text>();
+        //spawn = GetComponent<Spawner>();
 
     }
     void Update()
     {
-       
+        
+
         scoreText.text = "Score: " + score.ToString();
         if (currentHealth <= 0)
         {
-            
             if (!isDead)
             {
+
                 ScoreUpdate();
                 gameObject.GetComponent<EnemyController>().die();
                 isDead = true;
@@ -48,6 +52,7 @@ public class EnemyHealthManager : MonoBehaviour
                 capsule.enabled = false;
                 damage = 0;
                 hurtZone.SetActive(false);
+                enemiesKilled++;
             }
             else
                 damage = 2;
@@ -65,6 +70,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void ScoreUpdate()
     {
+        
         scoreText = GameObject.Find("Score").GetComponentInChildren<Text>();
         score += scoreValue;
 
