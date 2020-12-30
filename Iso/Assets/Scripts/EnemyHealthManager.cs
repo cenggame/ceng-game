@@ -13,13 +13,11 @@ public class EnemyHealthManager : MonoBehaviour
     private int currentHealth;
     public bool isDead = false;
     public int damage = 2;
-    PlayerHealthManager crHealth;
-
-
+    PlayerHealthManager playerHealth;
+    public int gainedHealth = 5;
 
     public static  int score;
     int scoreValue = 10;
-    public int gainedHealth = 5;
     public Text scoreText;
 
     void Start()
@@ -53,6 +51,10 @@ public class EnemyHealthManager : MonoBehaviour
                 damage = 2;
         }
     }
+    void Awake()
+    {
+        playerHealth = FindObjectOfType<PlayerHealthManager>();
+    }
     public void HurtEnemy(int damage)
     {
         currentHealth -= damage;
@@ -63,9 +65,20 @@ public class EnemyHealthManager : MonoBehaviour
         score += scoreValue;
 
         //If score is multiple of 100, player will gain some health 
-        if (score != 0 && score % 100 == 0)
+        if (score != 0 && score % 50 == 0)
         {
-           // crHealth.currentHealth += gainedHealth;
+            GainHealth();
+        }
+    }
+    public void GainHealth()
+    {
+        if(playerHealth.currentHealth+gainedHealth < playerHealth.startingHealth)
+        {
+            playerHealth.currentHealth += gainedHealth;
+        }
+        else
+        {
+            playerHealth.currentHealth = playerHealth.startingHealth;
         }
     }
 }
