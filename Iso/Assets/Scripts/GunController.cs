@@ -12,7 +12,7 @@ public class GunController : MonoBehaviour
     public float shotCounter;
     public Transform firePoint;
     private AudioSource mAudioSrc;
-    public int maxAmmo = 10;
+    public int maxAmmo;
     public int currentAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
@@ -22,7 +22,8 @@ public class GunController : MonoBehaviour
     void Start()
     {
         mAudioSrc = GetComponent<AudioSource>();
-        currentAmmo = maxAmmo;
+        maxAmmo = 20;
+        currentAmmo = 10;
         showAmmo();
     }
     // Update is called once per frame
@@ -32,14 +33,17 @@ public class GunController : MonoBehaviour
         {
             return;
         }
-        if (currentAmmo <= 0)
+        if (currentAmmo <= 0 && maxAmmo > 0)
         {
             StartCoroutine(Reload());
             return;
         }
         if (isFiring)
         {
-            shot();
+            if (currentAmmo > 0)
+            {
+                shot();
+            }
         }
         else
         {
@@ -50,7 +54,8 @@ public class GunController : MonoBehaviour
     {
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
-        currentAmmo = maxAmmo;
+        currentAmmo += 10;
+        maxAmmo -= 10;
         showAmmo();
         isReloading = false;
     }
@@ -64,7 +69,10 @@ public class GunController : MonoBehaviour
         shotCounter -= Time.deltaTime;
         if (shotCounter <= 0)
         {
-            currentAmmo--;
+            if (currentAmmo > 0)
+            {
+                currentAmmo--;
+            }
             showAmmo();
             shotCounter = timeBetweenShots;
             BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
