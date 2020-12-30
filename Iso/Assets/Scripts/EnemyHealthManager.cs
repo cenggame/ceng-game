@@ -15,6 +15,8 @@ public class EnemyHealthManager : MonoBehaviour
     public int damage = 2;
     PlayerHealthManager playerHealth;
     public int gainedHealth = 5;
+    public int gainedAmmo = 20;
+    GunController playerAmmo;
 
     public static  int score;
     int scoreValue = 10;
@@ -54,6 +56,7 @@ public class EnemyHealthManager : MonoBehaviour
     void Awake()
     {
         playerHealth = FindObjectOfType<PlayerHealthManager>();
+        playerAmmo = FindObjectOfType<GunController>();
     }
     public void HurtEnemy(int damage)
     {
@@ -68,6 +71,7 @@ public class EnemyHealthManager : MonoBehaviour
         if (score != 0 && score % 50 == 0)
         {
             GainHealth();
+            GainAmmo();
         }
     }
     public void GainHealth()
@@ -80,5 +84,9 @@ public class EnemyHealthManager : MonoBehaviour
         {
             playerHealth.currentHealth = playerHealth.startingHealth;
         }
+    }
+    public void GainAmmo()
+    {
+        playerAmmo.maxAmmo += gainedAmmo;
     }
 }
