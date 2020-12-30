@@ -18,6 +18,11 @@ public class GunController : MonoBehaviour
     private bool isReloading = false;
     public Text ammoText;
 
+
+    public AudioSource[] sounds;
+    public AudioSource soundFire;
+    public AudioSource soundReload;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +30,11 @@ public class GunController : MonoBehaviour
         maxAmmo = 20;
         currentAmmo = 10;
         showAmmo();
+
+
+        sounds = GetComponents<AudioSource>();
+        soundFire = sounds[0];
+        soundReload = sounds[1];
     }
     // Update is called once per frame
     void Update()
@@ -52,12 +62,13 @@ public class GunController : MonoBehaviour
     }
     IEnumerator Reload()
     {
+        soundReload.Play();
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         currentAmmo += 10;
         maxAmmo -= 10;
         showAmmo();
-        isReloading = false;
+        isReloading = false; 
     }
     public void showAmmo()
     {
@@ -78,6 +89,8 @@ public class GunController : MonoBehaviour
             BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
             newBullet.speed = bulletSpeed;
             mAudioSrc.Play();
+            soundFire.Play();
+            
 
             Destroy(newBullet, 8f);
         }
