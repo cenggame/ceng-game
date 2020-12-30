@@ -20,7 +20,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     public static  int score;
     int scoreValue = 10;
-    public Text scoreText;
+    public  Text scoreText;
 
     void Start()
     {
@@ -29,18 +29,18 @@ public class EnemyHealthManager : MonoBehaviour
         currentHealth = health;
         mAudioSrc.Play();
         damage = 2;
-        score = 0;
+        scoreText = GameObject.Find("ScoreText").GetComponentInChildren<Text>();
+
     }
     void Update()
     {
+       
         scoreText.text = "Score: " + score.ToString();
-
         if (currentHealth <= 0)
         {
             
             if (!isDead)
             {
-                
                 ScoreUpdate();
                 gameObject.GetComponent<EnemyController>().die();
                 isDead = true;
@@ -65,6 +65,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     public void ScoreUpdate()
     {
+        scoreText = GameObject.Find("Score").GetComponentInChildren<Text>();
         score += scoreValue;
 
         //If score is multiple of 100, player will gain some health 
@@ -72,6 +73,7 @@ public class EnemyHealthManager : MonoBehaviour
         {
             GainHealth();
             GainAmmo();
+            playerAmmo.showAmmo();
         }
     }
     public void GainHealth()

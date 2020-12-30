@@ -59,7 +59,7 @@ public class GunController : MonoBehaviour
         showAmmo();
         isReloading = false;
     }
-    void showAmmo()
+    public void showAmmo()
     {
         ammoText = GameObject.Find("Ammo").GetComponent<Text>();
         ammoText.text = currentAmmo + "/" + maxAmmo;
