@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public Transform Target;
     NavMeshAgent Agent;
     public float distance;
-    GameObject target; 
+    GameObject target;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,6 @@ public class EnemyController : MonoBehaviour
         Agent.speed = 0;
         Agent.enabled = false;
         ZombieAnim.SetTrigger("death");
-
     }
     public void attack()
     {
@@ -44,4 +43,6 @@ public class EnemyController : MonoBehaviour
         //Agent.enabled = false;
         //this.enabled = false;
     }
+
+   
 }

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    EnemyHealthManager en;
     public int waveNumber = 0;
     public int enemySpawnAmount = 0;
-    public int enemiesKilled = 0;
-
+    public  int enemiesKilled = 0;
     public GameObject[] spawners;
     public GameObject enemy;
+    int scc;
+    bool isSpawned=false;
+    static float a = 2;
+
+    EnemyHealthManager en;
 
     private void Start()
     {
-       // en = GetComponent<EnemyHealthManager>();
         spawners = new GameObject[10];
 
         for(int i = 0; i < spawners.Length; i++)
@@ -26,13 +28,22 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        enemiesKilled = GetComponent<EnemyHealthManager>().enemiesKilled;
-        if (Input.GetKeyDown(KeyCode.T))
+        Debug.Log(EnemyHealthManager.score);
+
+
+        if ((EnemyHealthManager.score / 10) == 2)
         {
-            SpawnEnemy();
+            if (!isSpawned)
+            {
+                if ((EnemyHealthManager.score / 10) >= enemySpawnAmount)
+                {
+                    isSpawned = true;
+                    NextWave();
+                }
+            }
         }
 
-        if (enemiesKilled >= enemySpawnAmount)
+        if ( (EnemyHealthManager.score/10) >= (enemySpawnAmount + (scc) ) )
         {
             NextWave();
         }
@@ -49,8 +60,9 @@ public class Spawner : MonoBehaviour
         waveNumber = 1;
         enemySpawnAmount = 2;
         enemiesKilled = 0;
+        
 
-        for(int i=0; i < enemySpawnAmount; i++)
+        for (int i=0; i < enemySpawnAmount; i++)
         {
             SpawnEnemy();
         }
@@ -58,6 +70,9 @@ public class Spawner : MonoBehaviour
     
     public void NextWave()
     {
+
+        
+        scc=EnemyHealthManager.score/10;
         waveNumber++;
         enemySpawnAmount += 2;
         enemiesKilled = 0;

@@ -17,12 +17,13 @@ public class EnemyHealthManager : MonoBehaviour
     public int gainedHealth = 5;
     public int gainedAmmo = 20;
     GunController playerAmmo;
-    public int enemiesKilled = 0;
-    Spawner spawn;
+    public Text gammoText;
+    public Text ghealthText;
 
-    public int score;
+    public static int score;
+    public int scc;
     int scoreValue = 10;
-    public  Text scoreText;
+    public Text scoreText;
 
     void Start()
     {
@@ -30,9 +31,7 @@ public class EnemyHealthManager : MonoBehaviour
         mAudioSrc = GetComponent<AudioSource>();
         currentHealth = health;
         mAudioSrc.Play();
-        damage = 2;
         scoreText = GameObject.Find("ScoreText").GetComponentInChildren<Text>();
-        //spawn = GetComponent<Spawner>();
 
     }
     void Update()
@@ -44,7 +43,6 @@ public class EnemyHealthManager : MonoBehaviour
         {
             if (!isDead)
             {
-
                 ScoreUpdate();
                 gameObject.GetComponent<EnemyController>().die();
                 isDead = true;
@@ -52,7 +50,7 @@ public class EnemyHealthManager : MonoBehaviour
                 capsule.enabled = false;
                 damage = 0;
                 hurtZone.SetActive(false);
-                enemiesKilled++;
+                //enemiesKilled++;
             }
             else
                 damage = 2;
@@ -72,6 +70,8 @@ public class EnemyHealthManager : MonoBehaviour
     {
         
         scoreText = GameObject.Find("Score").GetComponentInChildren<Text>();
+        gammoText = GameObject.Find("GainedAmmo").GetComponentInChildren<Text>();
+        ghealthText = GameObject.Find("GainedHealth").GetComponentInChildren<Text>();
         score += scoreValue;
 
         //If score is multiple of 100, player will gain some health 
@@ -84,17 +84,26 @@ public class EnemyHealthManager : MonoBehaviour
     }
     public void GainHealth()
     {
-        if(playerHealth.currentHealth+gainedHealth < playerHealth.startingHealth)
+        ghealthText.text = null;
+        if (playerHealth.currentHealth+gainedHealth < playerHealth.startingHealth)
         {
             playerHealth.currentHealth += gainedHealth;
+            ghealthText.text = "+ " + gainedHealth + " Health";
         }
         else
         {
-            playerHealth.currentHealth = playerHealth.startingHealth;
+            if (playerHealth.currentHealth < playerHealth.startingHealth)
+            {
+                ghealthText.text = "+ " + (playerHealth.startingHealth - playerHealth.currentHealth) + " Health";
+                playerHealth.currentHealth = playerHealth.startingHealth;
+            }
         }
     }
     public void GainAmmo()
     {
         playerAmmo.maxAmmo += gainedAmmo;
+        gammoText.text = "+ " + gainedAmmo + " Ammo";
     }
+
+    
 }

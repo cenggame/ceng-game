@@ -17,6 +17,7 @@ public class GunController : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading = false;
     public Text ammoText;
+    int ammoDif;
 
 
     public AudioSource[] sounds;
@@ -43,7 +44,7 @@ public class GunController : MonoBehaviour
         {
             return;
         }
-        if (currentAmmo <= 0 && maxAmmo > 0)
+        if (currentAmmo <= 0 && maxAmmo > 0 || ( Input.GetKeyDown(KeyCode.R) && currentAmmo < 10 ) )
         {
             StartCoroutine(Reload());
             return;
@@ -65,8 +66,34 @@ public class GunController : MonoBehaviour
         soundReload.Play();
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
-        currentAmmo += 10;
-        maxAmmo -= 10;
+       
+        if(maxAmmo!=0)
+        { 
+
+        if(maxAmmo >= 10)
+        { 
+        ammoDif = 10 - currentAmmo;
+        currentAmmo += ammoDif;
+        maxAmmo -= ammoDif;
+        }
+        else 
+        {
+                if(maxAmmo+currentAmmo <= 10 )
+                {
+                    currentAmmo = currentAmmo + maxAmmo;
+                    maxAmmo = 0;
+                }
+                else
+                {
+                    ammoDif = 10 - currentAmmo;
+                    currentAmmo += ammoDif;
+                    maxAmmo -= ammoDif;
+                }
+            
+        }
+
+        }
+
         showAmmo();
         isReloading = false; 
     }
