@@ -10,10 +10,8 @@ public class Spawner : MonoBehaviour
     public GameObject[] spawners;
     public GameObject enemy;
     int scc;
-    bool isSpawned=false;
-    static float a = 2;
-
-    EnemyHealthManager en;
+   // bool isSpawned=false;
+    bool isWaiting=true;
 
     private void Start()
     {
@@ -23,36 +21,59 @@ public class Spawner : MonoBehaviour
         {
             spawners[i] = transform.GetChild(i).gameObject;
         }
-        StartWave();
+            StartWave();
     }
 
     private void Update()
     {
-        Debug.Log(EnemyHealthManager.score);
+        Debug.Log(isWaiting);
 
 
-        if ((EnemyHealthManager.score / 10) == 2)
+       /* if ((EnemyHealthManager.score / 10) == 2)
         {
             if (!isSpawned)
             {
+                isSpawned=true;
                 if ((EnemyHealthManager.score / 10) >= enemySpawnAmount)
                 {
-                    isSpawned = true;
-                    NextWave();
+                    if (isWaiting)
+                    {
+                        WaveWait();
+
+                    }
+                    else
+                    {
+                        NextWave();
+                    }
+                    
                 }
             }
+        }*/
+
+         if ( (EnemyHealthManager.score/10) >= (enemySpawnAmount + (scc) ) )
+        {
+            if (isWaiting)
+            {
+                WaveWait();
+
+            }
+            else
+            {
+                NextWave();
+                
+            }
+            isWaiting = true;
+            
         }
 
-        if ( (EnemyHealthManager.score/10) >= (enemySpawnAmount + (scc) ) )
-        {
-            NextWave();
         }
-    }
+    
 
     private void SpawnEnemy()
     {
         int spawnerID = Random.Range(0, spawners.Length);
         Instantiate(enemy, spawners[spawnerID].transform.position, spawners[spawnerID].transform.rotation);
+        isWaiting = true;
     }
 
     public void StartWave()
@@ -60,25 +81,41 @@ public class Spawner : MonoBehaviour
         waveNumber = 1;
         enemySpawnAmount = 2;
         enemiesKilled = 0;
-        
 
         for (int i=0; i < enemySpawnAmount; i++)
         {
             SpawnEnemy();
         }
+        isWaiting = true;
     }
     
     public void NextWave()
     {
+            scc = EnemyHealthManager.score / 10;
+            waveNumber++;
+            enemySpawnAmount += 2;
+            enemiesKilled = 0;
+            for (int i = 0; i < enemySpawnAmount; i++)
+            {
+                SpawnEnemy();
+                isWaiting = true;
+            }
 
-        
-        scc=EnemyHealthManager.score/10;
-        waveNumber++;
-        enemySpawnAmount += 2;
-        enemiesKilled = 0;
-        for (int i = 0; i < enemySpawnAmount; i++)
-        {
-            SpawnEnemy();
-        }
+
+        isWaiting = true;
+    }
+
+    IEnumerator Waiting()
+    {   
+       
+        yield return new WaitForSeconds(3f);
+         isWaiting = false;
+    }
+    
+    void WaveWait()
+    {
+        StartCoroutine(Waiting());
+        isWaiting = true;
+        return;
     }
 }
