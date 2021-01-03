@@ -70,5 +70,7 @@ public class PlayerHealthManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("SampleScene");
+        EnemyHealthManager.score = 0;
+
     }
 }

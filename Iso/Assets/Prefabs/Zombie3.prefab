@@ -120,7 +120,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4708ff08709a8c646965e3eabcfe31d1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.04
+  m_Volume: 0.32
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -217,17 +217,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtZone: {fileID: 4899320950810466073}
-  mAudioSrc: {fileID: 0}
+  mAudioSrc: {fileID: 4899320949783602055}
   health: 10
   isDead: 0
   damage: 0
   gainedHealth: 5
   gainedAmmo: 20
-  scoreText: {fileID: 8633318922403868495, guid: fbf24ec94187c0640b05fa6c755fcce4,
-    type: 3}
   gammoText: {fileID: 6069492619938478143, guid: bbd1bf5930f02654d95dc7babbc68157,
     type: 3}
   ghealthText: {fileID: 4491881807221572036, guid: 6c3ea9a7841fc804e8e6e112ac42a5e4,
+    type: 3}
+  scc: 0
+  scoreText: {fileID: 8633318922403868495, guid: fbf24ec94187c0640b05fa6c755fcce4,
     type: 3}
 --- !u!114 &4899320949783602061
 MonoBehaviour:
@@ -253,7 +254,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 4
+  m_Speed: 6
   m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 400

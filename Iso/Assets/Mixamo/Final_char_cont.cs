@@ -13,11 +13,15 @@ public class Final_char_cont : MonoBehaviour
     private Camera mainCamera;
     public GunController theGun;
     public bool isDead;
+    float nextStepTime = 0.45f;
+    float cooldownTime = 0.45f;
+    AudioSource au;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        au= GetComponent<AudioSource>();
 
         chr_anim = gameObject.GetComponent<Animator>();
         forward = Camera.main.transform.forward;
@@ -67,9 +71,13 @@ public class Final_char_cont : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             Move();
+            if (Time.time > nextStepTime)
+            {
+                au.Play();
+                nextStepTime = Time.time + cooldownTime;
+            }
+
         }
-
-
     }
     void Move()
     {

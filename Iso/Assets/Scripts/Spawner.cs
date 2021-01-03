@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -11,7 +12,14 @@ public class Spawner : MonoBehaviour
     public GameObject enemy;
     int scc;
     bool isWaiting=false;
+    public Text waveStatus;
 
+
+    private void Awake()
+    {
+        enemySpawnAmount = 0;
+        waveNumber = 0;
+    }
     private void Start()
     {
         spawners = new GameObject[10];
@@ -21,11 +29,14 @@ public class Spawner : MonoBehaviour
             spawners[i] = transform.GetChild(i).gameObject;
         }
             StartWave();
+
+        
+        waveStatus = GameObject.Find("Wave Status").GetComponentInChildren<Text>();
+        waveStatus.text = "Wave  " + waveNumber;
     }
 
     private void Update()
     {
-        Debug.Log(isWaiting);
 
          if ( (EnemyHealthManager.score/10) >= (enemySpawnAmount + (scc) ) )
         {
@@ -40,7 +51,8 @@ public class Spawner : MonoBehaviour
             }
 
         }
-        }
+
+    }
 
     private void SpawnEnemy()
     {
@@ -62,16 +74,18 @@ public class Spawner : MonoBehaviour
     
      IEnumerator NextWave()
     {
+        waveStatus.text = "Get ready for the next wave!";
             isWaiting = true;
             scc = EnemyHealthManager.score / 10;
             waveNumber++;
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             enemySpawnAmount += 2;
             enemiesKilled = 0;
             for (int i = 0; i < enemySpawnAmount; i++)
             {
                 SpawnEnemy();
             }
+            waveStatus.text = "Wave : "+waveNumber;
 
         isWaiting = false;
     }

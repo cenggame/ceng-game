@@ -19,11 +19,14 @@ public class EnemyHealthManager : MonoBehaviour
     GunController playerAmmo;
     public Text gammoText;
     public Text ghealthText;
+    float nextFireTime = 5f;
+    float cooldownTime = 5f;
 
     public static int score;
     public int scc;
     int scoreValue = 10;
     public Text scoreText;
+
 
     void Start()
     {
@@ -50,10 +53,16 @@ public class EnemyHealthManager : MonoBehaviour
                 capsule.enabled = false;
                 damage = 0;
                 hurtZone.SetActive(false);
-                //enemiesKilled++;
             }
             else
                 damage = 2;
+        }
+
+        if (Time.time > nextFireTime)
+        {
+            gammoText.text = "";
+            ghealthText.text = "";
+            nextFireTime = Time.time + cooldownTime;
         }
     }
     void Awake()
@@ -101,9 +110,9 @@ public class EnemyHealthManager : MonoBehaviour
     }
     public void GainAmmo()
     {
-        playerAmmo.maxAmmo += gainedAmmo;
-        gammoText.text = "+ " + gainedAmmo + " Ammo";
+            playerAmmo.maxAmmo += gainedAmmo;
+            gammoText.text = "+ " + gainedAmmo + " Ammo";
     }
 
-    
+
 }
