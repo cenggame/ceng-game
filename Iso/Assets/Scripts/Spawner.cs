@@ -10,8 +10,7 @@ public class Spawner : MonoBehaviour
     public GameObject[] spawners;
     public GameObject enemy;
     int scc;
-   // bool isSpawned=false;
-    bool isWaiting=true;
+    bool isWaiting=false;
 
     private void Start()
     {
@@ -28,52 +27,25 @@ public class Spawner : MonoBehaviour
     {
         Debug.Log(isWaiting);
 
-
-       /* if ((EnemyHealthManager.score / 10) == 2)
-        {
-            if (!isSpawned)
-            {
-                isSpawned=true;
-                if ((EnemyHealthManager.score / 10) >= enemySpawnAmount)
-                {
-                    if (isWaiting)
-                    {
-                        WaveWait();
-
-                    }
-                    else
-                    {
-                        NextWave();
-                    }
-                    
-                }
-            }
-        }*/
-
          if ( (EnemyHealthManager.score/10) >= (enemySpawnAmount + (scc) ) )
         {
-            if (isWaiting)
+            
+            if(isWaiting)
             {
-                WaveWait();
-
+                return;
             }
             else
             {
-                NextWave();
-                
+                StartCoroutine(NextWave());
             }
-            isWaiting = true;
-            
-        }
 
         }
-    
+        }
 
     private void SpawnEnemy()
     {
         int spawnerID = Random.Range(0, spawners.Length);
         Instantiate(enemy, spawners[spawnerID].transform.position, spawners[spawnerID].transform.rotation);
-        isWaiting = true;
     }
 
     public void StartWave()
@@ -86,36 +58,27 @@ public class Spawner : MonoBehaviour
         {
             SpawnEnemy();
         }
-        isWaiting = true;
     }
     
-    public void NextWave()
+     IEnumerator NextWave()
     {
+            isWaiting = true;
             scc = EnemyHealthManager.score / 10;
             waveNumber++;
+            yield return new WaitForSeconds(3f);
             enemySpawnAmount += 2;
             enemiesKilled = 0;
             for (int i = 0; i < enemySpawnAmount; i++)
             {
                 SpawnEnemy();
-                isWaiting = true;
             }
 
-
-        isWaiting = true;
+        isWaiting = false;
     }
 
-    IEnumerator Waiting()
-    {   
-       
-        yield return new WaitForSeconds(3f);
-         isWaiting = false;
-    }
-    
-    void WaveWait()
-    {
-        StartCoroutine(Waiting());
-        isWaiting = true;
-        return;
-    }
+  
+
+
+
+
 }
