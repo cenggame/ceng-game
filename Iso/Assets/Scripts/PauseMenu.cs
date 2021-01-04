@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject Pause_Menu;
     public GameObject confirmQuit;
+    public GameObject settingsMenu;
     bool isPaused;
     bool confirm=false;
 
@@ -41,7 +42,14 @@ public class PauseMenu : MonoBehaviour
     }
     public void Settings()
     {
-
+        settingsMenu.SetActive(true);
+        //Pause_Menu.SetActive(false);
+        Pause_Menu.SetActiveRecursively(false);
+    }
+    public void Back()
+    {
+        settingsMenu.SetActive(false);
+        Pause_Menu.SetActive(true);
     }
     //[System.Obsolete]
     public void MainMenu()
