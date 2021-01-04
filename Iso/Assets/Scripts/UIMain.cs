@@ -10,6 +10,7 @@ public class UIMain : MonoBehaviour
     public GameObject settingsScreen;
     public GameObject creditsScreen;
     public GameObject mainScreen;
+    public GameObject soundSlider; 
 
     public void StartGame()
     {
@@ -32,6 +33,10 @@ public class UIMain : MonoBehaviour
     {
         mainScreen.SetActive(false);
         creditsScreen.SetActive(true);
+    }
+    public void SoundActive()
+    {
+        soundSlider.SetActive(true);
     }
 
     public void CreToMenu()
