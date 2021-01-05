@@ -10,10 +10,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject Pause_Menu;
     public GameObject confirmQuit;
     public GameObject settingsMenu;
-    bool isPaused;
+    public bool isPaused;
     bool confirm=false;
     public AudioMixer mixer;
     public AudioMixer mixerSound;
+    PlayerHealthManager phm;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class PauseMenu : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !PlayerHealthManager.isDead)
         {
             isPaused = !isPaused;
         }

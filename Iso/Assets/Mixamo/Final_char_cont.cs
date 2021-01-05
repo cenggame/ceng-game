@@ -37,7 +37,8 @@ public class Final_char_cont : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isDead = GetComponent<PlayerHealthManager>().isDead;
+        //isDead = GetComponent<PlayerHealthManager>().isDead;
+        isDead = PlayerHealthManager.isDead;
         if (isDead)
         {
             this.enabled = false;

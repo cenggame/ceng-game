@@ -12,9 +12,11 @@ public class PlayerHealthManager : MonoBehaviour
     public int currentHealth;
     public Slider slider;
     public Image fillImage;
-    public bool isDead=false;
+    public static bool isDead=false;
     public float waitTime=5f;
     public bool gameOverMenu;
+    public PauseMenu pauseMenu;
+
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class PlayerHealthManager : MonoBehaviour
                 fillImage.enabled = false;
                 isDead = true;
                 gameOverMenu = true;
+                
             }
         }
         if (gameOverMenu)
