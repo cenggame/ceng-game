@@ -18,7 +18,7 @@ public class GunController : MonoBehaviour
     private bool isReloading = false;
     public Text ammoText;
     int ammoDif;
-
+    public static bool isMenuOpen;
 
     public AudioSource[] sounds;
     public AudioSource soundFire;
@@ -27,6 +27,7 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isMenuOpen = false;
         mAudioSrc = GetComponent<AudioSource>();
         maxAmmo = 20;
         currentAmmo = 10;
@@ -51,7 +52,7 @@ public class GunController : MonoBehaviour
         }
         if (isFiring)
         {
-            if (currentAmmo > 0)
+            if (currentAmmo > 0 && (isMenuOpen == false))
             {
                 shot();
             }
@@ -89,9 +90,7 @@ public class GunController : MonoBehaviour
                     currentAmmo += ammoDif;
                     maxAmmo -= ammoDif;
                 }
-            
         }
-
         }
 
         showAmmo();
