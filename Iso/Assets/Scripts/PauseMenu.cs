@@ -30,18 +30,20 @@ public class PauseMenu : MonoBehaviour
             Pause_Menu.SetActive(true);
             Time.timeScale = 0;
             Cursor.visible = true;
+            GunController.isMenuOpen = true;
         }
         else
         {
+            GunController.isMenuOpen = false;
             Pause_Menu.SetActive(false);
         }
     }
     public void ResumeGame()
     {
+        isPaused = false;
         Pause_Menu.SetActive(false);
         Time.timeScale = 1;
         Cursor.visible = false;
-        isPaused = false;
     }
     public void Settings()
     {
