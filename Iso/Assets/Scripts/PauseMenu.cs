@@ -14,7 +14,6 @@ public class PauseMenu : MonoBehaviour
     bool confirm=false;
     public AudioMixer mixer;
     public AudioMixer mixerSound;
-    PlayerHealthManager phm;
 
     private void Start()
     {

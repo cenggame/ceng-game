@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
+
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -13,10 +15,10 @@ public class PlayerHealthManager : MonoBehaviour
     public Slider slider;
     public Image fillImage;
     public static bool isDead=false;
+    public bool isDying = false;
     public float waitTime=5f;
     public bool gameOverMenu;
     public PauseMenu pauseMenu;
-
 
     void Start()
     {
@@ -33,11 +35,14 @@ public class PlayerHealthManager : MonoBehaviour
             //capsule.enabled = false;
             if (!isDead)
             {
-                PlayerDie();
-                fillImage.enabled = false;
-                isDead = true;
-                gameOverMenu = true;
-                
+                if(isDying)
+                {
+                    return;
+                }
+                else
+                {
+                    StartCoroutine(PlayerDie());
+                }
             }
         }
         if (gameOverMenu)
@@ -57,9 +62,15 @@ public class PlayerHealthManager : MonoBehaviour
     {
         currentHealth -= damageAmount;
     }
-    void PlayerDie()
+    IEnumerator PlayerDie()
     {
+        isDying = true;
+        isDead = true;
         _animator.SetTrigger("death");
+        yield return new WaitForSeconds(3f);
+        fillImage.enabled = false;
+        gameOverMenu = true;
+        isDying = false;
     }
     public void MainMenu()
     {
@@ -74,6 +85,5 @@ public class PlayerHealthManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
         EnemyHealthManager.score = 0;
-
     }
 }

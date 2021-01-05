@@ -23,7 +23,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         ZombieAnim.SetFloat("speed",Agent.velocity.magnitude);
+        if (PlayerHealthManager.isDead)
+        {
+            Agent.enabled = false;
+        }
+        ZombieAnim.SetFloat("speed",Agent.velocity.magnitude);
         Agent.SetDestination(target.transform.position);
     }
     public void die()
