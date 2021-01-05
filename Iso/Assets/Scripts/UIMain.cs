@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class UIMain : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class UIMain : MonoBehaviour
     public GameObject settingsScreen;
     public GameObject creditsScreen;
     public GameObject mainScreen;
-    public GameObject soundSlider; 
+    public GameObject soundScreen;
+    public AudioMixer soundMixer;
+    public AudioMixer musicMixer;
+    
 
     public void StartGame()
     {
@@ -21,9 +25,17 @@ public class UIMain : MonoBehaviour
     {
         mainScreen.SetActive(false);
         settingsScreen.SetActive(true);
-        
     }
-
+    public void SoundScreen()
+    {
+        settingsScreen.SetActive(false);
+        soundScreen.SetActive(true);
+    }
+    public void SetToSettings()
+    {
+        settingsScreen.SetActive(true);
+        soundScreen.SetActive(false);
+    }
     public void SetToMenu()
     {
         mainScreen.SetActive(true);
@@ -34,11 +46,6 @@ public class UIMain : MonoBehaviour
         mainScreen.SetActive(false);
         creditsScreen.SetActive(true);
     }
-    public void SoundActive()
-    {
-        soundSlider.SetActive(true);
-    }
-
     public void CreToMenu()
     {
         mainScreen.SetActive(true);
@@ -47,6 +54,16 @@ public class UIMain : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void SetLevelMusic(float sliderValue)
+    {
+        musicMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20);
+    }
+
+    public void SetLevelSound(float sliderValue)
+    {
+        soundMixer.SetFloat("SoundVolume", Mathf.Log10(sliderValue) * 20);
     }
     // Start is called before the first frame update
     void Start()
