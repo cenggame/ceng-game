@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.40017477, g: 0.41946286, b: 0.4182799, a: 1}
+  m_IndirectSpecularColor: {r: 0.40017465, g: 0.41946265, b: 0.41827965, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1109,7 +1109,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: NaN}
+  m_BoundingSphereOverride: {x: 1.9446261e+31, y: 2.2136748e-10, z: 4.8011534e+30,
+    w: 1.8888916e+31}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2472,7 +2473,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 6.3250305e+28, z: 1.01524616e+12, w: 6.9767185e+22}
+  m_BoundingSphereOverride: {x: 0, y: 2.4674e-41, z: 0, w: -1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3409,7 +3410,7 @@ Transform:
   m_Children:
   - {fileID: 1393370339}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 30.598001, y: 45.000004, z: 0}
 --- !u!114 &177013417
 MonoBehaviour:
@@ -4256,7 +4257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &220142722 stripped
 Transform:
@@ -11716,7 +11717,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 772a31863606bcd49928cf75711a8880,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 772a31863606bcd49928cf75711a8880,
         type: 3}
@@ -12692,7 +12693,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 6.7e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.65e-43, y: 4.3185e-41, z: 0, w: -1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -13034,7 +13035,8 @@ AudioSource:
   m_GameObject: {fileID: 718704187}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f92a4c1202c76404389d2ab468082ce9,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3b0b817810b72084c9721816a9bbb071, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -13649,7 +13651,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &768632107 stripped
 Transform:
@@ -15331,7 +15333,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 6.7e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.64e-43, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -15450,7 +15452,7 @@ RectTransform:
   - {fileID: 785682467}
   - {fileID: 285126964}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21687,7 +21689,7 @@ Transform:
   - {fileID: 620471014}
   - {fileID: 983376760}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1232402406
 MonoBehaviour:
@@ -23832,7 +23834,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.113e-41, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.65e-43, y: 6.376695e-10, z: 7e-45, w: 0.0000000015634072}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -25168,8 +25170,9 @@ Transform:
   - {fileID: 2066589827}
   - {fileID: 1856960310}
   - {fileID: 1513969291}
+  - {fileID: 1843202343}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1422688225
 PrefabInstance:
@@ -27537,7 +27540,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 7.1169e-41, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.65e-43, y: 0, z: 0, w: 0.0000000011892576}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -31967,7 +31970,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.65e-43, y: 4.3048e-41, z: 4e-45, w: -1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -33001,7 +33004,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1419623019}
     m_Modifications:
     - target: {fileID: 125488, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_Name
@@ -33009,19 +33012,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 106.27
+      value: 67.62424
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.006363618
+      value: 38.769997
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41.01
+      value: -82.05319
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -33029,7 +33032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33037,7 +33040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 347
       objectReference: {fileID: 0}
     - target: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -33065,6 +33068,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 246882358e79e4848bd2b76fcf658d3b, type: 3}
+--- !u!4 &1843202343 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 457682, guid: 246882358e79e4848bd2b76fcf658d3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1843202342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1844130479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36905,7 +36914,7 @@ Transform:
   m_LocalScale: {x: 39.916073, y: 0.9999974, z: 128.65483}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2065390113 stripped
 Transform:
