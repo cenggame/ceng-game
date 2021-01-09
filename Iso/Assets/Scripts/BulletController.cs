@@ -29,9 +29,17 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        
         if (other.gameObject.tag == "Enemy")
         {
+            Debug.Log("Vuruldun kardesim.");
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damageToGive);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.tag == "Boss")
+        {
+            Debug.Log("Vuruldun kardesim boss.");
+            other.gameObject.GetComponent<BossHealth>().HurtBoss(damageToGive);
             Destroy(gameObject);
         }
     }
