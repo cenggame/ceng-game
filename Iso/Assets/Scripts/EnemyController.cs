@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent Agent;
     public float distance;
     GameObject target;
+    public PlayerHealthManager isdd;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,13 @@ public class EnemyController : MonoBehaviour
         ZombieAnim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
-
+        isdd = new PlayerHealthManager();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerHealthManager.isDead)
+        if (isdd.isDead)
         {
             Agent.enabled = false;
         }
