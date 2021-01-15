@@ -24052,7 +24052,7 @@ MonoBehaviour:
   waitTime: 0
   gameOverMenu: 0
   pauseMenu: {fileID: 0}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 2125325690}
 --- !u!114 &1075851376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24825,7 +24825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1108065731
 RectTransform:
   m_ObjectHideFlags: 0
