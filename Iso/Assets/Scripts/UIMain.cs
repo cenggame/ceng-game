@@ -11,7 +11,6 @@ public class UIMain : MonoBehaviour
     public GameObject settingsScreen;
     public GameObject creditsScreen;
     public GameObject mainScreen;
-    public GameObject soundScreen;
     public AudioMixer soundMixer;
     public AudioMixer musicMixer;
     
@@ -25,16 +24,6 @@ public class UIMain : MonoBehaviour
     {
         mainScreen.SetActive(false);
         settingsScreen.SetActive(true);
-    }
-    public void SoundScreen()
-    {
-        settingsScreen.SetActive(false);
-        soundScreen.SetActive(true);
-    }
-    public void SetToSettings()
-    {
-        settingsScreen.SetActive(true);
-        soundScreen.SetActive(false);
     }
     public void SetToMenu()
     {

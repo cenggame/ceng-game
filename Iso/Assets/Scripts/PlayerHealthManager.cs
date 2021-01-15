@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 public class PlayerHealthManager : MonoBehaviour
@@ -19,12 +20,14 @@ public class PlayerHealthManager : MonoBehaviour
     public float waitTime=5f;
     public bool gameOverMenu;
     public PauseMenu pauseMenu;
+    public Text scoreText;
 
     void Start()
     {
         currentHealth = startingHealth;
         _animator = GetComponent<Animator>();
         capsule = GetComponent<CapsuleCollider>();
+        scoreText = GameObject.Find("ScoreValue").GetComponentInChildren<Text>();
     }
     // Update is called once per frame
     void Update()
@@ -48,6 +51,7 @@ public class PlayerHealthManager : MonoBehaviour
         if (gameOverMenu)
         {
             game_Over.SetActive(true);
+            scoreText.text = "" + EnemyHealthManager.score;
             Time.timeScale = 0;
             Cursor.visible = true;
         }
