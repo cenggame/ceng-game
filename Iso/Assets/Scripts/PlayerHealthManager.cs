@@ -15,12 +15,13 @@ public class PlayerHealthManager : MonoBehaviour
     public int currentHealth;
     public Slider slider;
     public Image fillImage;
-    public static bool isDead=false;
+    public  bool isDead=false;
     public bool isDying = false;
-    public float waitTime=5f;
+    public float waitTime=3f;
     public bool gameOverMenu;
     public PauseMenu pauseMenu;
     public Text scoreText;
+
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class PlayerHealthManager : MonoBehaviour
                 else
                 {
                     StartCoroutine(PlayerDie());
+                    
                 }
             }
         }
@@ -68,6 +70,7 @@ public class PlayerHealthManager : MonoBehaviour
     }
     IEnumerator PlayerDie()
     {
+        this.GetComponent<Final_char_cont>().enabled = false;
         isDying = true;
         isDead = true;
         _animator.SetTrigger("death");
@@ -87,7 +90,9 @@ public class PlayerHealthManager : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        isDead = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
         EnemyHealthManager.score = 0;
     }
 }

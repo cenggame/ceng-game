@@ -16,6 +16,7 @@ public class Final_char_cont : MonoBehaviour
     float nextStepTime = 0.45f;
     float cooldownTime = 0.45f;
     AudioSource au;
+    public PlayerHealthManager isdd;
     
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class Final_char_cont : MonoBehaviour
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
         theGun.isFiring = false;
-
+        isdd = new PlayerHealthManager();
 
 
     }
@@ -38,7 +39,8 @@ public class Final_char_cont : MonoBehaviour
     void Update()
     {
         //isDead = GetComponent<PlayerHealthManager>().isDead;
-        isDead = PlayerHealthManager.isDead;
+        isDead = isdd.isDead;
+        //transform.parent.gameObject.GetComponent<PlayerHealthManager>().isDead = false;
         if (isDead)
         {
             this.enabled = false;
