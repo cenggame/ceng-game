@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   distance: 0
+  isdd: {fileID: 0}
 --- !u!195 &4899320949783602050
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 6
+  m_Speed: 8
   m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 400
