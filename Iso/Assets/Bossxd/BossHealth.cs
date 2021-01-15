@@ -14,7 +14,7 @@ public class BossHealth : MonoBehaviour
     void Start()
     {
         isAlive = true;
-        startingHealth = 100;
+        startingHealth = 220;
         currentHealth = startingHealth;
         Agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
