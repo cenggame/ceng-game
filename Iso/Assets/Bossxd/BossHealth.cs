@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class BossHealth : MonoBehaviour
     public bool isAlive;
     NavMeshAgent Agent;
     public Animator animator;
+    public Slider slider;
+
     void Start()
     {
         isAlive = true;
@@ -24,6 +27,7 @@ public class BossHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slider.value = currentHealth;
         if (currentHealth <= 50)
         {
             BossMov.Enraged = true;

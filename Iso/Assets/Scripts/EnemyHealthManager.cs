@@ -39,8 +39,6 @@ public class EnemyHealthManager : MonoBehaviour
     }
     void Update()
     {
-        
-
         scoreText.text = "Score: " + score.ToString();
         if (currentHealth <= 0)
         {
