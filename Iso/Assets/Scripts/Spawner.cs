@@ -19,13 +19,14 @@ public class Spawner : MonoBehaviour
     static bool isLevelled =false;
     public int level1Score;
     bool isBossSpawned = false;
-    
+    public GameObject bossHealthBar;
 
 
     private void Awake()
     {
         enemySpawnAmount = 0;
         waveNumber = 0;
+        
     }
     private void Start()
     {
@@ -153,6 +154,7 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator BossSpawn()
     {
+        
         waveStatus.text = "Get ready for the Final Boss(JACK THE REAPER)!";
         isWaiting = true;
         isBossSpawned = true;
@@ -160,7 +162,8 @@ public class Spawner : MonoBehaviour
         Instantiate(boz, spawners[9].transform.position, spawners[9].transform.rotation);
         waveStatus.text = "";
         isWaiting = false;
-        
+        bossHealthBar.SetActive(true);
+
     }
 
   

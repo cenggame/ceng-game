@@ -21,7 +21,6 @@ public class BossHealth : MonoBehaviour
         currentHealth = startingHealth;
         Agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -53,6 +52,7 @@ public class BossHealth : MonoBehaviour
                 Destroy(gameObject);
             }
 
+            
 
 
         }
