@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
     bool isBossSpawned = false;
     public GameObject loadScene;
     public bool isLoading;
+    public Slider loadSlider;
 
 
     private void Awake()
@@ -56,45 +57,43 @@ public class Spawner : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "SampleScene")
             {
-                level1Score = EnemyHealthManager.score;
-                EnemyHealthManager.score = 0;
-                enemySpawnAmount = 0;
                 loadScene.SetActive(true);
-                /*if (isLoading)
+                if (isLoading)
                 {
                     StartCoroutine(loadingScreen());
                     //return;
                 }
                 else
-                {*/
+                {
+                    level1Score = EnemyHealthManager.score;
+                    EnemyHealthManager.score = 0;
+                    enemySpawnAmount = 0;
                     SceneManager.LoadScene("Level2");
                     isLevelled = true;
                     //Debug.Log("saas");
-                    
-                //}
-                
-    
-            }
-            else
-            {
-                if (isBossSpawned == false)
-                {
-                    if (isWaiting)
-                    {
-                        return;
-                    }
-                    else if (isStarting)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        StartCoroutine(BossSpawn());
-                    }
+                    return;
                 }
                 
+            }  
+        }
+        else if (EnemyHealthManager.score >=20 && SceneManager.GetActiveScene().name == "Level2")
+        {
+            if (isBossSpawned == false)
+            {
+                if (isWaiting)
+                {
+                    return;
+                }
+                else if (isStarting)
+                {
+                    return;
+                }
+                else
+                {
+                    StartCoroutine(BossSpawn());
+                }
             }
-            
+
         }
 
 
@@ -180,7 +179,13 @@ public class Spawner : MonoBehaviour
 
     IEnumerator loadingScreen()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
+        loadSlider.value = 1;
+        yield return new WaitForSeconds(1f);
+        loadSlider.value = 2;        
+        yield return new WaitForSeconds(1f);
+        loadSlider.value = loadSlider.maxValue;
+        yield return new WaitForSeconds(1f);
         isLoading = false;
     }
   
