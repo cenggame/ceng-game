@@ -13,6 +13,7 @@ public class BossHealth : MonoBehaviour
     NavMeshAgent Agent;
     public Animator animator;
     public Slider slider;
+    public Image fillImage;
 
     void Start()
     {

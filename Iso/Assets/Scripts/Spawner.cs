@@ -19,8 +19,6 @@ public class Spawner : MonoBehaviour
     static bool isLevelled =false;
     public int level1Score;
     bool isBossSpawned = false;
-    public GameObject bossHealthBar;
-    
 
 
     private void Awake()
@@ -45,6 +43,7 @@ public class Spawner : MonoBehaviour
         {
             StartWave();
         }
+
     }
 
     private void Update()
@@ -158,10 +157,9 @@ public class Spawner : MonoBehaviour
         isWaiting = true;
         isBossSpawned = true;
         yield return new WaitForSeconds(5f);
-        Instantiate(boz, spawners[9].transform.position, spawners[9].transform.rotation);
+        boz.SetActive(true);
         waveStatus.text = "";
         isWaiting = false;
-        bossHealthBar.SetActive(true);
         
     }
 

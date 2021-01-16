@@ -53,7 +53,14 @@ public class PlayerHealthManager : MonoBehaviour
         if (gameOverMenu)
         {
             game_Over.SetActive(true);
-            scoreText.text = "" + EnemyHealthManager.score;
+
+            if (SceneManager.GetActiveScene().name == "SampleScene") {
+                scoreText.text = "" + EnemyHealthManager.score;
+            }
+            else
+            {
+                scoreText.text = "" + EnemyHealthManager.score + Spawner.level1Score;
+            }   
             Time.timeScale = 0;
             Cursor.visible = true;
         }
