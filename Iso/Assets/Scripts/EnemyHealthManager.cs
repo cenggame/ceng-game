@@ -74,6 +74,7 @@ public class EnemyHealthManager : MonoBehaviour
     {
         currentHealth -= damage;
         BloodAnim();
+        Debug.Log("hittt11111111111");
     }
 
     public void ScoreUpdate()
@@ -116,13 +117,7 @@ public class EnemyHealthManager : MonoBehaviour
     }
     void BloodAnim()
     {
-        if (Time.time > nextFireTime)
-        {
-            hitBlood.Play();
-            Debug.Log("");
-            nextFireTime = Time.time + cooldownTime;
-        }
-
+        hitBlood.Play();
     }
 
 }

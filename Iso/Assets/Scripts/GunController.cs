@@ -50,7 +50,7 @@ public class GunController : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < 30 && maxAmmo > 0 || currentAmmo == 0)
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < 30 && maxAmmo > 0 || (currentAmmo == 0 && maxAmmo!=0 ))
         {
             StartCoroutine(Reload());
             return;
