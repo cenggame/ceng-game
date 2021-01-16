@@ -15,7 +15,7 @@ public class BossPlayerInt : MonoBehaviour
     NavMeshAgent Agent;
     Component bosmov;
     public bool isEnraged;
-    
+    public AudioSource attackSound;
 
     private void Start()
     {
@@ -23,6 +23,7 @@ public class BossPlayerInt : MonoBehaviour
         animator = GetComponentInParent<Animator>();
         isAttacking = false;
         Agent = GetComponentInParent<NavMeshAgent>();
+        //attackSound = GetComponent<AudioSource>();
         
     }
     void OnTriggerEnter(Collider other)
@@ -38,9 +39,6 @@ public class BossPlayerInt : MonoBehaviour
             {
                 
                 StartCoroutine(Attack(other));
-
-
-
             }
         }
 
@@ -59,7 +57,7 @@ public class BossPlayerInt : MonoBehaviour
         transform.parent.gameObject.GetComponent<BossMov>().isWalking = true;
         transform.parent.gameObject.GetComponent<BossMov>().isRunning = true;
         isAttacking = false;
-
+        attackSound.Play();
     }
 }
 
