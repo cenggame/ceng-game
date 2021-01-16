@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
 
-        if (EnemyHealthManager.score >= 20 && isLevelled == false)
+        if (EnemyHealthManager.score >= 300 && isLevelled == false)
         {
             if (SceneManager.GetActiveScene().name == "SampleScene")
             {
@@ -97,7 +97,7 @@ public class Spawner : MonoBehaviour
         }
 
 
-        if ((EnemyHealthManager.score / 10) >= (enemySpawnAmount + (scc)) && EnemyHealthManager.score != 20)
+        if ((EnemyHealthManager.score / 10) >= (enemySpawnAmount + (scc)) && EnemyHealthManager.score != 300)
         {
 
             if (isWaiting)
