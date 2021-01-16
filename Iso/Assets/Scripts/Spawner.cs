@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
 
-        if (EnemyHealthManager.score >= 20 && isLevelled == false)
+        if (EnemyHealthManager.score >= 300 && isLevelled == false)
         {
             if (SceneManager.GetActiveScene().name == "SampleScene")
             {
@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
                 
             }  
         }
-        else if (EnemyHealthManager.score >=20 && SceneManager.GetActiveScene().name == "Level2")
+        else if (EnemyHealthManager.score >=300 && SceneManager.GetActiveScene().name == "Level2")
         {
             if (isBossSpawned == false)
             {
@@ -97,7 +97,7 @@ public class Spawner : MonoBehaviour
         }
 
 
-        if ((EnemyHealthManager.score / 10) >= (enemySpawnAmount + (scc)) && EnemyHealthManager.score != 20)
+        if ((EnemyHealthManager.score / 10) >= (enemySpawnAmount + (scc)) && EnemyHealthManager.score != 300)
         {
 
             if (isWaiting)
@@ -188,9 +188,6 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isLoading = false;
     }
-  
-
-
 
 
 }

@@ -15,7 +15,7 @@ public class EnemyHealthManager : MonoBehaviour
     public int damage = 2;
     PlayerHealthManager playerHealth;
     public int gainedHealth = 5;
-    public int gainedAmmo = 20;
+    public int gainedAmmo = 60;
     GunController playerAmmo;
     public Text gammoText;
     public Text ghealthText;
@@ -37,10 +37,13 @@ public class EnemyHealthManager : MonoBehaviour
         currentHealth = health;
         mAudioSrc.Play();
         scoreText = GameObject.Find("ScoreText").GetComponentInChildren<Text>();
+        gainedAmmo = 60;
 
-    }
+}
     void Update()
     {
+        gainedAmmo = 60;
+        Debug.Log(gainedAmmo);
         scoreText.text = "Score: " + score.ToString();
         if (currentHealth <= 0)
         {
@@ -74,7 +77,6 @@ public class EnemyHealthManager : MonoBehaviour
     {
         currentHealth -= damage;
         BloodAnim();
-        Debug.Log("hittt11111111111");
     }
 
     public void ScoreUpdate()

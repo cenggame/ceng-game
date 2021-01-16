@@ -14,6 +14,8 @@ public class BossMov : MonoBehaviour
     public static bool Enraged;
     public bool isRoaring;
     public bool isRunning;
+    public ParticleSystem enrageAnim1;
+    public ParticleSystem enrageAnim2;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,7 @@ public class BossMov : MonoBehaviour
                     animator.SetFloat("speed", 3);
                 }
                 
-                Agent.speed = 10;
+                Agent.speed = 12;
                
                 
             }
@@ -87,7 +89,9 @@ public class BossMov : MonoBehaviour
         isLanding = false;
     }
     IEnumerator Roaring()
-    {   
+    {
+        enrageAnim1.Play();
+        enrageAnim2.Play();
         Agent.enabled = false;
         yield return new WaitForSeconds(5);
         Agent.enabled = true;
