@@ -17,8 +17,10 @@ public class Spawner : MonoBehaviour
     bool isStarting = true;
     public Text waveStatus;
     static bool isLevelled =false;
-    public int level1Score;
+    public static int level1Score;
     bool isBossSpawned = false;
+    public GameObject loadScene;
+    public bool isLoading;
 
 
     private void Awake()
@@ -28,6 +30,7 @@ public class Spawner : MonoBehaviour
     }
     private void Start()
     {
+        isLoading = true;
         spawners = new GameObject[10];
 
         for(int i = 0; i < spawners.Length; i++)
@@ -53,12 +56,24 @@ public class Spawner : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "SampleScene")
             {
+                level1Score = EnemyHealthManager.score;
                 EnemyHealthManager.score = 0;
                 enemySpawnAmount = 0;
-                Debug.Log("saas");
-                SceneManager.LoadScene("Level2");
-                isLevelled = true;
-                return;
+                loadScene.SetActive(true);
+                /*if (isLoading)
+                {
+                    StartCoroutine(loadingScreen());
+                    //return;
+                }
+                else
+                {*/
+                    SceneManager.LoadScene("Level2");
+                    isLevelled = true;
+                    //Debug.Log("saas");
+                    
+                //}
+                
+    
             }
             else
             {
@@ -163,6 +178,11 @@ public class Spawner : MonoBehaviour
         
     }
 
+    IEnumerator loadingScreen()
+    {
+        yield return new WaitForSeconds(5f);
+        isLoading = false;
+    }
   
 
 
