@@ -59,7 +59,8 @@ public class PlayerHealthManager : MonoBehaviour
             }
             else
             {
-                scoreText.text = "" + EnemyHealthManager.score + Spawner.level1Score;
+                int score = EnemyHealthManager.score + Spawner.level1Score;
+                scoreText.text = "" + score;
             }   
             Time.timeScale = 0;
             Cursor.visible = true;

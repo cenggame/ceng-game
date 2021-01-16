@@ -871,7 +871,7 @@ PrefabInstance:
     - target: {fileID: 8633318922403868494, guid: fbf24ec94187c0640b05fa6c755fcce4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8633318922403868494, guid: fbf24ec94187c0640b05fa6c755fcce4,
         type: 3}
@@ -4129,7 +4129,7 @@ RectTransform:
   - {fileID: 946811996}
   - {fileID: 1296531713}
   m_Father: {fileID: 1290366150}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5846,7 +5846,7 @@ RectTransform:
   - {fileID: 1777191151}
   - {fileID: 1661750084}
   m_Father: {fileID: 1290366150}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14127,11 +14127,11 @@ RectTransform:
   - {fileID: 1172358063}
   - {fileID: 1712005307}
   - {fileID: 1714657974}
+  - {fileID: 127702339}
   - {fileID: 2043162736}
   - {fileID: 1930951264}
   - {fileID: 527121282}
   - {fileID: 741082459}
-  - {fileID: 127702339}
   - {fileID: 788892645}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -15536,6 +15536,7 @@ MonoBehaviour:
   waveStatus: {fileID: 1220317138}
   loadScene: {fileID: 0}
   isLoading: 0
+  loadSlider: {fileID: 0}
 --- !u!4 &1446262708
 Transform:
   m_ObjectHideFlags: 0
@@ -24251,7 +24252,7 @@ RectTransform:
   - {fileID: 583343837}
   - {fileID: 1664955491}
   m_Father: {fileID: 1290366150}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -25128,7 +25129,7 @@ RectTransform:
   - {fileID: 1369347606}
   - {fileID: 424670964}
   m_Father: {fileID: 1290366150}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

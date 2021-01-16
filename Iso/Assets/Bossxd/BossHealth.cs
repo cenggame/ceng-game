@@ -28,7 +28,7 @@ public class BossHealth : MonoBehaviour
     void Update()
     {
         slider.value = currentHealth;
-        if (currentHealth <= 50)
+        if (currentHealth <= startingHealth/2)
         {
             BossMov.Enraged = true;
         }
