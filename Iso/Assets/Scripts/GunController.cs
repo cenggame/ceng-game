@@ -29,8 +29,8 @@ public class GunController : MonoBehaviour
     {
         isMenuOpen = false;
         mAudioSrc = GetComponent<AudioSource>();
-        maxAmmo = 20;
-        currentAmmo = 10;
+        maxAmmo = 30;
+        currentAmmo = 30;
         showAmmo();
 
 
@@ -45,7 +45,7 @@ public class GunController : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < 10 && maxAmmo > 0 || currentAmmo==0)
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < 30 && maxAmmo > 0 || currentAmmo == 0)
         {
             StartCoroutine(Reload());
             return;
@@ -71,22 +71,22 @@ public class GunController : MonoBehaviour
         if(maxAmmo!=0)
         { 
 
-        if(maxAmmo >= 10)
+        if(maxAmmo >= 30)
         { 
-        ammoDif = 10 - currentAmmo;
+        ammoDif = 30 - currentAmmo;
         currentAmmo += ammoDif;
         maxAmmo -= ammoDif;
         }
         else 
         {
-                if(maxAmmo+currentAmmo <= 10 )
+                if(maxAmmo+currentAmmo <= 30 )
                 {
                     currentAmmo = currentAmmo + maxAmmo;
                     maxAmmo = 0;
                 }
                 else
                 {
-                    ammoDif = 10 - currentAmmo;
+                    ammoDif = 30 - currentAmmo;
                     currentAmmo += ammoDif;
                     maxAmmo -= ammoDif;
                 }
