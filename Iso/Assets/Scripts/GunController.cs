@@ -24,11 +24,16 @@ public class GunController : MonoBehaviour
     public AudioSource soundFire;
     public AudioSource soundReload;
 
+    public ParticleSystem muzzle;
+    float nextFireTime = 0.17f;
+    float cooldownTime = 0.17f;
+
     // Start is called before the first frame update
     void Start()
     {
         isMenuOpen = false;
         mAudioSrc = GetComponent<AudioSource>();
+        muzzle = GetComponent<ParticleSystem>();
         maxAmmo = 30;
         currentAmmo = 30;
         showAmmo();
@@ -55,10 +60,12 @@ public class GunController : MonoBehaviour
             if (currentAmmo > 0 && (isMenuOpen == false))
             {
                 shot();
+                muzzleShot();
             }
         }
         else
         {
+            muzzle.Stop();
             shotCounter = 0;
         }
     }
@@ -110,15 +117,27 @@ public class GunController : MonoBehaviour
             {
                 currentAmmo--;
             }
+            
             showAmmo();
             shotCounter = timeBetweenShots;
             BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation) as BulletController;
             newBullet.speed = bulletSpeed;
             mAudioSrc.Play();
             soundFire.Play();
-            
 
             Destroy(newBullet, 8f);
+           
         }
+       
+    }
+
+    void muzzleShot()
+    {
+        if (Time.time > nextFireTime)
+        {
+            muzzle.Play();
+            nextFireTime = Time.time + cooldownTime;
+        }
+        
     }
 }

@@ -22,6 +22,8 @@ public class EnemyHealthManager : MonoBehaviour
     float nextFireTime = 5f;
     float cooldownTime = 5f;
 
+    public ParticleSystem hitBlood;
+
     public static int score;
     public int scc;
     int scoreValue = 10;
@@ -71,6 +73,7 @@ public class EnemyHealthManager : MonoBehaviour
     public void HurtEnemy(int damage)
     {
         currentHealth -= damage;
+        BloodAnim();
     }
 
     public void ScoreUpdate()
@@ -111,6 +114,15 @@ public class EnemyHealthManager : MonoBehaviour
             playerAmmo.maxAmmo += gainedAmmo;
             gammoText.text = "+ " + gainedAmmo + " Ammo";
     }
+    void BloodAnim()
+    {
+        if (Time.time > nextFireTime)
+        {
+            hitBlood.Play();
+            Debug.Log("");
+            nextFireTime = Time.time + cooldownTime;
+        }
 
+    }
 
 }
