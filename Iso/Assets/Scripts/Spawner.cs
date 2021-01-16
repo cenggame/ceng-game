@@ -57,7 +57,7 @@ public class Spawner : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "SampleScene")
             {
-                loadScene.SetActive(true);
+                
                 if (isLoading)
                 {
                     StartCoroutine(loadingScreen());
@@ -179,6 +179,8 @@ public class Spawner : MonoBehaviour
 
     IEnumerator loadingScreen()
     {
+        yield return new WaitForSeconds(3f);
+        loadScene.SetActive(true);
         yield return new WaitForSeconds(1f);
         loadSlider.value = 1;
         yield return new WaitForSeconds(1f);
