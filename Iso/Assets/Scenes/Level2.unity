@@ -3081,6 +3081,99 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 398876971}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &423363455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 423363459}
+  - component: {fileID: 423363458}
+  - component: {fileID: 423363457}
+  - component: {fileID: 423363456}
+  m_Layer: 0
+  m_Name: Cube (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &423363456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423363455}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3161051, y: 1, z: 1.182248}
+  m_Center: {x: 1.1580449, y: 0, z: 0.17328082}
+--- !u!23 &423363457
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423363455}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &423363458
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423363455}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &423363459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423363455}
+  m_LocalRotation: {x: -0, y: 0.16787449, z: -0, w: 0.9858084}
+  m_LocalPosition: {x: 218.05, y: 0, z: 494.79}
+  m_LocalScale: {x: 5.3542047, y: 5.3541975, z: 32.01996}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 19.329, z: 0}
 --- !u!1 &424670963
 GameObject:
   m_ObjectHideFlags: 0
@@ -6524,7 +6617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &788892645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7093,7 +7186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 309}
+  m_AnchoredPosition: {x: 0, y: 402}
   m_SizeDelta: {x: 160, y: 30.000214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829912898
@@ -8063,8 +8156,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 204.3845}
-  m_Center: {x: 0.0000000015954065, y: 0, z: -20.575186}
+  m_Size: {x: 1.0167925, y: 1, z: 215.1177}
+  m_Center: {x: 0.008396094, y: 0, z: -25.94179}
 --- !u!23 &1019350665
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14642,8 +14735,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 49.20548}
-  m_Center: {x: 0, y: 0, z: -24.102747}
+  m_Size: {x: 1.0681968, y: 1, z: 49.20547}
+  m_Center: {x: -0.034099508, y: 0, z: -24.102743}
 --- !u!23 &1294271244
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19547,8 +19640,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999964, y: 1, z: 366.6356}
-  m_Center: {x: 0.00000030459898, y: 0, z: 134.6123}
+  m_Size: {x: 0.99999964, y: 1, z: 430.90213}
+  m_Center: {x: 0.0000007906725, y: 0, z: 102.47907}
 --- !u!23 &1794124247
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25274,7 +25367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -82}
+  m_AnchoredPosition: {x: 0, y: 68.3}
   m_SizeDelta: {x: 500, y: 607.0336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993520275
@@ -25306,12 +25399,14 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "CENGO \n\n\n\nESTU 2020/2021 SOFTWARE ENGINEERING \nGAME PROJECT \n\nPROJECT
-    DEVELOPERS\n\nF\u0130KR\u0130 SAMET MERT\nBERKAY \xC7OKG\xD6R\nEZG\u0130CAN EREL\nYAS\u0130N
-    YILDIZ\nKAM\u0130L OZAN \u015EAH\u0130N\nH\u0130KMET D\u0130LEKC\u0130\n"
+  m_Text: "A journey of a young computer engineering student, Cengo, ends here after
+    the salvation of Iki Eylul Campus. \n\nThanks for coming along.\n\n\nESTU 2020/2021
+    SOFTWARE ENGINEERING \nGAME PROJECT \n\n\nPROJECT DEVELOPERS\n\n\nF\u0130KR\u0130
+    SAMET MERT\nBERKAY \xC7OKG\xD6R\nEZG\u0130CAN EREL\nYAS\u0130N YILDIZ\nKAM\u0130L
+    OZAN \u015EAH\u0130N\nH\u0130KMET D\u0130LEKC\u0130\n"
 --- !u!222 &1993520276
 CanvasRenderer:
   m_ObjectHideFlags: 0
