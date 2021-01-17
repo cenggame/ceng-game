@@ -52,8 +52,11 @@ public class BossHealth : MonoBehaviour
 
 
         if (isDead)
-        { 
-           // winMenu.SetActive(true);
+        {
+            
+            winMenu.SetActive(true);
+            slider.gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
     }
     public void HurtBoss(int damage)
@@ -72,7 +75,7 @@ public class BossHealth : MonoBehaviour
         this.GetComponent<Final_char_cont>().enabled = false;
         yield return new WaitForSeconds(3f);
         fillImage.enabled = false;
-        winMenu.SetActive(true);
+        //winMenu.SetActive(true);
         Time.timeScale = 0;
         Cursor.visible = true;
 

@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
                 
             }  
         }
-        else if (EnemyHealthManager.score >=300 && SceneManager.GetActiveScene().name == "Level2")
+        else if (EnemyHealthManager.score >= 300 && SceneManager.GetActiveScene().name == "Level2")
         {
             if (isBossSpawned == false)
             {
@@ -167,7 +167,7 @@ public class Spawner : MonoBehaviour
     }
     IEnumerator BossSpawn()
     {
-        waveStatus.text = "Get ready for the Final Boss(JACK THE REAPER)!";
+        waveStatus.text = "Get ready for the Final Boss!";
         isWaiting = true;
         isBossSpawned = true;
         yield return new WaitForSeconds(5f);
