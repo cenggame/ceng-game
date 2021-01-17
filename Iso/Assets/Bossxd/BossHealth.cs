@@ -20,7 +20,7 @@ public class BossHealth : MonoBehaviour
     void Start()
     {
         isAlive = true;
-        startingHealth = 666;
+        startingHealth = 500;
         currentHealth = startingHealth;
         Agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -30,21 +30,21 @@ public class BossHealth : MonoBehaviour
     void Update()
     {
         slider.value = currentHealth;
-        if (currentHealth <= startingHealth/2)
+        if (currentHealth <= startingHealth / 2)
         {
             BossMov.Enraged = true;
         }
         if (currentHealth <= 0)
         {
-            if (isAlive) { 
-            Agent.enabled = false;
-            GetComponent<BossMov>().enabled = false;
-            animator.SetFloat("speed", -5);
-            StartCoroutine(DeathAnim());
-        }
+            if (isAlive) {
+                Agent.enabled = false;
+                GetComponent<BossMov>().enabled = false;
+                animator.SetFloat("speed", -5);
+                StartCoroutine(DeathAnim());
+            }
             else
             {
-               
+
                 //Destroy(gameObject);
             }
 
@@ -52,9 +52,8 @@ public class BossHealth : MonoBehaviour
 
 
         if (isDead)
-        {
-            Time.timeScale = 0;
-            winMenu.SetActive(true);
+        { 
+           // winMenu.SetActive(true);
         }
     }
     public void HurtBoss(int damage)
