@@ -29,6 +29,10 @@ public class BossHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentHealth <= 0)
+        {
+            Cursor.visible = true;
+        }
         slider.value = currentHealth;
         if (currentHealth <= startingHealth / 2)
         {
@@ -56,6 +60,8 @@ public class BossHealth : MonoBehaviour
             
             winMenu.SetActive(true);
             slider.gameObject.SetActive(false);
+
+            Cursor.visible = true;
             //Destroy(gameObject);
         }
     }
@@ -77,7 +83,6 @@ public class BossHealth : MonoBehaviour
         fillImage.enabled = false;
         //winMenu.SetActive(true);
         Time.timeScale = 0;
-        Cursor.visible = true;
 
     }
 
